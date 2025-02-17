@@ -1,0 +1,50 @@
+body {
+    background: aquamarine;
+    padding: 0px;
+    margin: 10px;
+}
+
+
+.upper {
+    text-align: center;
+    color: blueviolet;
+    border-radius: 20px;
+    background: lightgoldenrodyellow;
+    font-family: Comic Sans Ms;
+    padding: 10px 40px 15px 40px;
+    margin: 50px 650px 90px 650px;
+}
+
+.lower {
+    font-family: Comic Sans Ms;
+    display: flex;
+    flex-direction: row;
+    color: blueviolet;
+    font-size: large;
+    justify-content: space-around;
+
+}
+
+.lower_container {
+    border-radius: 30px;
+    padding: 40px 150px 60px 150px;
+    background: lightgoldenrodyellow;
+    margin: 20px;
+    text-align: center;
+}
+
+.lower_container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: blueviolet;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.lower_container a:hover {
+
+    text-transform: uppercase;
+}

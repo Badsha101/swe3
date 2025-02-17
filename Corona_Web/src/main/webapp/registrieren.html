@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrierung</title>
+    <link rel="stylesheet" href="login-registration.css">
+
+</head>
+<body>
+
+    <div class="upper">
+        <h1>Registrierungs_Seite</h1></div>
+</div>
+
+<div class="upper-nav">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#" class="active">Registrieren</a>
+        <a href="user_login.html">Einloggen</a>
+        <a href="admin_login.html" class="roll">Admin_Seite</a>
+
+    </nav>
+</div>
+
+
+
+<div class="container_registrieren">
+
+    <form action="registrierenServlet" method="post">
+
+        <label for="vname">Vorname:</label>
+        <input type="text" id="vname" name="vname"  required><br>
+        <label for="nname">Nachname:</label>
+        <input type="text" id="nname" name="nname"  required><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+        <label for="password">Passwort :</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="password2">Passwort wiederholen :</label>
+        <input type="password" id="password2" name="password2" required><br>
+        <button type="submit">Registrieren</button>
+        <br>
+
+    </form>
+    <hr>
+    <p id="error-container" class="error-container" style="color:red;
+    font-size: 20px;
+    font-family: Comic Sans MS">
+    </p>
+
+</div>
+
+    <script>
+        // Get the query string from the URL
+        const queryString = window.location.search;
+
+        // Parse the query string
+        const urlParams = new URLSearchParams(queryString);
+
+        const error= urlParams.get("error");
+
+
+        // Check if the 'error' parameter is set and equals 1
+        if (error === "1") {
+            const errors = document.getElementById("error-container");
+            errors.textContent = "Registration nicht Erfolgreich";
+
+        }
+        else if(error === "4"){
+            const errors = document.getElementById("error-container");
+            errors.textContent = "Passwörter stimmen nicht überein";
+
+        }
+        else if(error==="2"){
+            const errors = document.getElementById("error-container");
+            errors.textContent = "Email schon registriert!";
+        }
+        else if(error==="3"){
+
+            // Access the error container element
+            const errors = document.getElementById("error-container");
+
+            if (errors) {
+                // Set the main success message
+                errors.innerHTML = "Registrierung Erfolgreich!<br>";
+                errors.style.color = "green";
+
+                const link = document.createElement("a");
+                link.href = "user_login.html";
+
+                // Create a new <button> element and apply the CSS class
+                const button = document.createElement("button");
+                button.textContent = "Einloggen!";
+                button.className = "button"; // Replace with your CSS class name
+
+                // Append the button inside the link
+                link.appendChild(button);
+
+                // Append the link (with the button) to the error container
+                errors.appendChild(link);
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>
